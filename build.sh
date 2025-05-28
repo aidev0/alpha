@@ -9,16 +9,17 @@ if [ ! -d "venv" ]; then
     python3 -m venv venv
 fi
 
-# Activate virtual environment
-echo "Activating virtual environment..."
-source venv/bin/activate
-
 # Upgrade pip
 echo "Upgrading pip..."
-pip install --upgrade pip
+venv/bin/pip install --upgrade pip
 
 # Install requirements
 echo "Installing requirements..."
-pip install -r requirements.txt
+venv/bin/pip install -r requirements.txt
 
-echo "Virtual environment is ready and dependencies are installed!" 
+echo "Virtual environment is ready!"
+echo ""
+echo "To activate the virtual environment, run:"
+echo "source venv/bin/activate"
+echo ""
+echo "You should see (venv) at the start of your prompt when activated." 
