@@ -6,21 +6,21 @@ ALPHA_DB_APP = {
         "parent_id": "6836492196cb52105c3b5f78"
     }
 
-ALPHA_APP_DEVELOPMENT_PLAN = {
-  "node_type": "app_development_plan",
+ALPHA_DB_APP_DEVELOPMENT_PLAN = {
+  "node_type": "app_development_task",
   "app_id": "6836492196cb52105c3b5f80",
   "description": "Development plan to create MongoDB setup for Alpha",
   "nodes": [
     {
-      "task_name": "Create db.py with all functions",
+      "name": "Create mongodb.py with all functions",
       "type": "file",
-      "path": "db.py",
+      "path": "mongodb.py",
       "cmd": None,
       "language": "python",
-      "description": "Inference LLM to create db.py. This file should contain get_db, get_apps_collection, and get_graphs_collection functions using MONGODB_URI and MONGODB_DATABASE environment variables"
+      "description": "Inference LLM to create get_db, get_apps_collection, and get_graphs_collection functions using MONGODB_URI and MONGODB_DATABASE environment variables"
     },
     {
-      "task_name": "Create requirements.txt",
+      "name": "Create requirements.txt",
       "type": "file",
       "path": "requirements.txt",
       "cmd": None,
@@ -48,7 +48,7 @@ Each node is a task to be completed.
 
 If we input {ALPHA_DB_APP} as the app details, the output should be:
 
-{ALPHA_APP_DEVELOPMENT_PLAN}
+{ALPHA_DB_APP_DEVELOPMENT_PLAN}
 
 
 """
