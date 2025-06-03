@@ -11,5 +11,20 @@ def get_db():
 def get_apps_collection():
     return get_db()["apps"]
 
+def get_agents_collection():
+    return get_db()["agents"]
+
+def get_flows_collection():
+    return get_db()["flows"]
+
+def get_plans_collection():
+    return get_db()["plans"]
+
 def get_graphs_collection():
     return get_db()["graphs"]
+
+def get_chats_collection():
+    return get_db()["chats"]
+
+def get_messages_collection():
+    return get_db()["messages"]
