@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field, ConfigDict
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 from datetime import datetime
 from enum import Enum
 from bson import ObjectId
@@ -28,6 +28,26 @@ class MessageRole(str, Enum):
     ASSISTANT = "assistant"
     SYSTEM = "system"
 
+class MessageContentType(str, Enum):
+    TEXT = "text"
+    JSON = "json"
+    URL = "url"
+    AUDIO = "audio"
+    VIDEO = "video"
+    IMAGE = "image"
+    GRAPH = "graph"
+    FILE = "file"
+    CODE = "code"
+    MARKDOWN = "markdown"
+    TABLE = "table"
+    FORM = "form"
+    LIST = "list"
+    TREE = "tree"
+
+class MessageContent(BaseModel):
+    """Base content structure for different message types"""
+    type: MessageContentType
+    data: Union[str, Dict[str, Any], List[Any]]
 class StateType(str, Enum):
     CHAT = "chat"
     APP = "app"
@@ -102,7 +122,8 @@ class Message(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     chat_id: PyObjectId
     role: MessageRole
-    content: str
+    content: List[MessageContent] = Field(default_factory=list)
+    text: Optional[str] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
