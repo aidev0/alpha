@@ -184,3 +184,6 @@ mongodb.log
 # Local development
 *.log
 .DS_Store
+
+*.pid
+*.log
